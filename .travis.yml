@@ -11,3 +11,6 @@ before_install:
 - go get -x code.google.com/p/go.tools/cmd/cover
 install: make build
 script: make test
+matrix:
+  allow_failures:
+  - go: tip
