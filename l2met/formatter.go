@@ -3,6 +3,7 @@ package l2met
 import (
 	"fmt"
 	"runtime"
+	"sort"
 	"strings"
 
 	"github.com/Sirupsen/logrus"
@@ -37,8 +38,17 @@ func (f *Formatter) Format(entry *logrus.Entry) ([]byte, error) {
 		entry.Data["filename"] = filename
 	}
 
-	for key, value := range entry.Data {
-		formatted = append(formatted, makeKeyValue(key, fmt.Sprintf("%v", value)))
+	keys := []string{}
+
+	for key := range entry.Data {
+		keys = append(keys, key)
+	}
+
+	sort.Strings(keys)
+
+	for _, key := range keys {
+		value := makeKeyValue(key, fmt.Sprintf("%v", entry.Data[key]))
+		formatted = append(formatted, value)
 	}
 
 	return []byte(strings.Join(formatted, " ") + "\n"), nil
