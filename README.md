@@ -24,5 +24,5 @@ log.WithFields(logrus.Fields{"mood": "stellar", "shrugs": nshrugs}).Info("wat")
 Such an example might produce a log record like this:
 
 ```
-myapp: mood=stellar shrugs=99 msg=wat filename=/path/to/web.go
+myapp: filename=/path/to/web.go mood=stellar msg=wat shrugs=99
 ```
