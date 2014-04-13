@@ -10,7 +10,7 @@ An [l2met](http://r.32k.io/l2met-introduction) formatter for
 [@henrikhodne](https://github.com/henrikhodne).  Take a look at the
 [example web app](./examples/l2met-web.go), or peek at this:
 
-``` golang
+``` go
 // in file "web.go"
 
 log := logrus.New()
